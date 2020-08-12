@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card border-dark mb-3">
+        <div class="card-header"></div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Productos</h5>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th>Agregar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producto of productos">
+                <th scope="row">{{producto.id}}</th>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.precio}}</td>
+                <td>
+                  <button type="button" name="agregar" class="btn btn-primary btn-sm" (click)='agregar(producto)'>Agregar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>    
+  </div>
