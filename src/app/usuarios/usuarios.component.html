@@ -1,5 +1,5 @@
 <div class="card bg-dark text-white">
-    <h5 class="card-title bg-success" *ngIf="temporada==true">Es temporada de promociones</h5>
+    <h5 class="card-title bg-success text-center" *ngIf="temporada==true">Es temporada de promociones</h5>
     <div class="card-header">{{ titulo }}</div>
     <div class="card-body">
   
@@ -7,7 +7,7 @@
         <div class="form-group row">
           <label for="dni" class="col-form-label col-sm-2">Dni</label>
           <div class="col-sm-6">
-            <input type="number" class="form-control" [(ngModel)]="carrito.dniUsuario" name="dni" autocomplete="off" required #dni="ngModel">
+            <input type="number" class="form-control" [(ngModel)]="usuario.dni" name="dni" autocomplete="off" required #dni="ngModel">
             <div class="alert alert-danger" *ngIf="dni.invalid && (dni.dirty || dni.touched)">
                 <div *ngIf="dni.errors.required">
                   El Dni es requerido
@@ -18,7 +18,7 @@
   
         <div class="form-group row">
           <div class="col-sm-6">
-            <button class="btn btn-primary" role="button" (click)='create()'[disabled]="!usuarioForm.form.valid">Crear</button>
+            <button class="btn btn-primary" role="button" (click)='cargarUsuario()'[disabled]="!usuarioForm.form.valid">Crear</button>
           </div>
         </div>
       </form>

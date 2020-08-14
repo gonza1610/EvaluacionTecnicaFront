@@ -7,6 +7,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductoService } from './productos/producto.service';
 import { CarritoService } from './usuarios/carrito.service';
+import { UsuarioService } from './usuarios/usuario.service';
+import {DataService} from './data/data.service'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -14,6 +16,7 @@ const routes: Routes=[
   {path: '', redirectTo: '/usuario', pathMatch: 'full'},
   {path: 'productos', component: ProductosComponent},
   {path: 'usuario', component: UsuariosComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ const routes: Routes=[
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ProductoService,CarritoService],
+  providers: [ProductoService,CarritoService,UsuarioService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

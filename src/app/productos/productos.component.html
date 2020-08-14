@@ -10,6 +10,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio</th>
                 <th>Agregar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -18,10 +19,47 @@
                 <td>{{producto.nombre}}</td>
                 <td>{{producto.precio}}</td>
                 <td>
-                  <button type="button" name="agregar" class="btn btn-primary btn-sm" (click)='agregar(producto)'>Agregar</button>
+                  <button type="button" name="agregar" class="btn btn-primary" (click)='agregar(producto)'>Agregar</button>
+                </td>
+                <td>
+                  <button type="button" name="eliminar" class="btn btn-danger" (click)='eliminar(producto)'>Eliminar</button>
                 </td>
               </tr>
             </tbody>
+            <h5 class="card-title  m-3">Precio a pagar: {{Total}}</h5>
+            <button type="button" name="modal" class="btn btn-info mb-3" (click)='modal()'data-toggle="modal" data-target="#ModalProd">Ver Productos</button>
           </table>
-    </div>    
+    </div>
+    <!-- MODAL DE VER PRODUCTOS -->
+    <div class="modal fade" id="ModalProd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header bg-primary">
+                  <h5 class="modal-title text-white" id="exampleModalLabel">LISTA</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let producto of productosCarrito">
+                      <td>{{producto.nombre}}</td>
+                      <td>{{producto.precio}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-dark" data-dismiss="modal">OK</button>
+              </div>
+          </div>
+      </div>
+  </div>
   </div>
